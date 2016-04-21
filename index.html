@@ -3,12 +3,29 @@ To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+ <head>
+ <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+ <meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0,
+ user-scalable=no" />
+ <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+ <script type="text/javascript" charset="utf-8">
+     
+     //waiting for device api
+     document.addEventListener("device ready", OnDeviceReady, false);
+     
+     //device api is ready
+     function OnDeviceReady(){
+         var element =document.getElementById('deviceProperties');
+         element.innerHTML ='Device name: '    + device.name + '<br/>' +
+                            'Device cordova: ' + device.cordova + '<br/>' +
+                            'Device platform: '+ device.platform + '<br/>' +
+                            'Device uuid: '    + device.uuid + '<br/>' +
+                            'Device model: '   + device.model + '<br/>' +
+                            'Device version: ' + device.vrrsion + '<br/>' +
+     }
+ </script>
+ </head>
+ <body>
+     <p id="deviceProperties"> loading device properties...</p>
+ </body>
 </html>
